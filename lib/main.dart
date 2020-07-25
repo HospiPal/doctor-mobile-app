@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'navigation.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
         accentColor: second,
         fontFamily: 'Franklin Gothic Demi',
       ),
+      initialRoute: Routes.auth,
+      onGenerateRoute: generateRoute,
     );
   }
 }
