@@ -13,9 +13,9 @@ class _PatientsState extends State<Patients> {
       body: SafeArea(
         child: GridView.builder(
           padding: const EdgeInsets.all(50),
-          itemCount: 8,
+          itemCount: 15,
           gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
           itemBuilder: (BuildContext context, int index) {
             return MaterialButton(
               padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
