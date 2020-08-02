@@ -1,3 +1,4 @@
+import 'package:doctorapp/central_screen/care_team/profile.dart';
 import 'package:doctorapp/central_screen/records/ui/allergies/allergies.dart';
 import 'package:doctorapp/central_screen/records/ui/conditions/conditions.dart';
 import 'package:doctorapp/central_screen/records/ui/immunizations/immunizations.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'auth/login.dart';
 import 'auth/sign_up.dart';
 import 'auth/ui/auth.dart';
+import 'central_screen/care_team/message.dart';
 import 'central_screen/journal/journal_tile.dart';
 import 'central_screen/journal/log_entry_add.dart';
 import 'central_screen/journal/log_entry_note.dart';
@@ -31,6 +33,8 @@ class Routes {
   static const immunizations = 'central_screen/records/immunizations';
   static const medications = 'central_screen/records/medications';
   static const procedures = 'central_screen/records/procedures';
+  static const message = 'care_team/message';
+  static const profile = 'care_team/profile';
 }
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -78,6 +82,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => Conditions());
     case Routes.labResults:
       return MaterialPageRoute(builder: (context) => LabResults());
+    case Routes.message:
+      return MaterialPageRoute(builder: (context) => Message());
+    case Routes.profile:
+      return MaterialPageRoute(builder: (context) => Profile());
     default:
       return MaterialPageRoute(
           builder: (context) => UndefinedRoute(settings.name));

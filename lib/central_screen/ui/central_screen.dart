@@ -1,3 +1,4 @@
+import 'package:doctorapp/central_screen/care_team/ui/care_team.dart';
 import 'package:doctorapp/central_screen/home/ui/home.dart';
 import 'package:doctorapp/central_screen/journal/ui/health.dart';
 import 'package:doctorapp/central_screen/records/ui/records.dart';
@@ -12,7 +13,12 @@ class _CentralScreenState extends State<CentralScreen> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[Home(), Health(), Records()];
+  static List<Widget> _widgetOptions = <Widget>[
+    Home(),
+    CareTeam(),
+    Health(),
+    Records()
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -31,6 +37,10 @@ class _CentralScreenState extends State<CentralScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.group),
+            title: Text('Care Team'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.book),

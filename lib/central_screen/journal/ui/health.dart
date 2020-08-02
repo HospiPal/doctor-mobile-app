@@ -41,6 +41,16 @@ class _HealthState extends State<Health> {
   ];
   int currentMonthDisplayed = 0;
   String dropDownValue = 'All Entries';
+  List<int> dropDownYears = <int>[
+    DateTime.now().year,
+    DateTime.now().subtract(Duration(days: 365)).year,
+    DateTime.now().subtract(Duration(days: 365 * 2)).year,
+    DateTime.now().subtract(Duration(days: 365 * 3)).year,
+    DateTime.now().subtract(Duration(days: 365 * 4)).year,
+    DateTime.now().subtract(Duration(days: 365 * 5)).year,
+  ];
+  int currentYearDisplayed = DateTime.now().year;
+  int dropDownYearValue = DateTime.now().year;
 
   void addToEntryList() async {
     final result = await Navigator.pushNamed(context, Routes.logEntryAdd);
@@ -83,25 +93,59 @@ class _HealthState extends State<Health> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          leading: DropdownButton<String>(
-        isExpanded: true,
-        value: dropDownValue,
-        //iconSize: 24,
-        //elevation: 16,
-        onChanged: (String newValue) {
-          setState(() {
-            currentMonthDisplayed = dropDownMonths.indexOf(newValue);
-            monthsDisplayed = getTileList(currentMonthDisplayed);
-            dropDownValue = newValue;
-          });
-        },
-        items: dropDownMonths.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-      )),
+        //padding: EdgeInsets.all(10),
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  value: dropDownValue,
+                  //iconSize: 24,
+                  //elevation: 16,
+                  onChanged: (String newValue) {
+                    setState(() {
+                      currentMonthDisplayed = dropDownMonths.indexOf(newValue);
+                      monthsDisplayed =
+                          getTileList(
+                              currentMonthDisplayed, currentYearDisplayed);
+                      dropDownValue = newValue;
+                    });
+                  },
+                  items:
+                  dropDownMonths.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+              ),
+              if (currentMonthDisplayed != 0)
+                DropdownButtonHideUnderline(
+                  child: DropdownButton<int>(
+                    value: dropDownYearValue,
+                    //iconSize: 24,
+                    //elevation: 16,
+                    onChanged: (int newValue) {
+                      setState(() {
+                        currentYearDisplayed = newValue;
+                        monthsDisplayed = getTileList(
+                            currentMonthDisplayed, currentYearDisplayed);
+                        dropDownYearValue = newValue;
+                      });
+                    },
+                    items:
+                    dropDownYears.map<DropdownMenuItem<int>>((int value) {
+                      return DropdownMenuItem<int>(
+                        value: value,
+                        child: Text(value.toString()),
+                      );
+                    }).toList(),
+                  ),
+                ),
+              //DropDownYear(),
+            ],
+          )),
       body: SafeArea(
         child: Center(
           child: ListView.separated(
@@ -111,7 +155,7 @@ class _HealthState extends State<Health> {
               //return LogEntryAdd();
               return Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
+                const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
                 child: Container(
                   child: Card(
                     //child: entries[index]
@@ -127,7 +171,9 @@ class _HealthState extends State<Health> {
                   ),
                   padding: EdgeInsets.all(2),
                   decoration: new BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Theme
+                        .of(context)
+                        .primaryColor,
                     borderRadius: new BorderRadius.only(
                       topLeft: const Radius.circular(4.0),
                       topRight: const Radius.circular(4.0),
@@ -139,7 +185,7 @@ class _HealthState extends State<Health> {
               );
             },
             separatorBuilder: (BuildContext context, int index) =>
-                const Divider(),
+            const Divider(),
           ),
         ),
       ),
@@ -156,13 +202,14 @@ class _HealthState extends State<Health> {
     );
   }
 
-  List<JournalTile> getTileList(int selectedMonth) {
+  List<JournalTile> getTileList(int selectedMonth, int selectedYear) {
     if (selectedMonth == 0) {
       return entries;
     } else {
       List<JournalTile> tileList = <JournalTile>[];
       for (var i = 0; i < entries.length; i++) {
-        if (entries[i].entry.dateStamp.month == selectedMonth) {
+        if (entries[i].entry.dateStamp.month == selectedMonth &&
+            entries[i].entry.dateStamp.year == selectedYear) {
           tileList.add(entries[i]);
         }
       }
