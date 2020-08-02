@@ -1,9 +1,9 @@
 import 'package:doctorapp/patients/ui/patients.dart';
 import 'package:flutter/material.dart';
 
-import 'auth/login.dart';
-import 'auth/sign_up.dart';
 import 'auth/ui/auth.dart';
+import 'auth/ui/login.dart';
+import 'auth/ui/sign_up.dart';
 import 'central_screen/ui/central_screen.dart';
 
 class Routes {
