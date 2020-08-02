@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../navigation.dart';
+
 class Patients extends StatefulWidget {
   @override
   _PatientsState createState() => _PatientsState();
@@ -17,11 +19,16 @@ class _PatientsState extends State<Patients> {
           gridDelegate:
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
           itemBuilder: (BuildContext context, int index) {
-            return MaterialButton(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-              shape: CircleBorder(),
-              onPressed: () {},
-              color: Theme.of(context).primaryColor,
+            return Container(
+              padding: EdgeInsets.all(5),
+              child: MaterialButton(
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                shape: CircleBorder(),
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, Routes.centralScreen);
+                },
+                color: Theme.of(context).primaryColor,
+              ),
             );
           },
         ),
