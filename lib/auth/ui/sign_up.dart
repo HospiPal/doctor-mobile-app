@@ -1,7 +1,7 @@
 import 'package:doctorapp/auth/ui/auth.dart';
 import 'package:flutter/material.dart';
 
-import '../navigation.dart';
+import '../../navigation.dart';
 
 class SignUp extends StatefulWidget {
   @override
