@@ -1,5 +1,5 @@
 import 'package:doctorapp/central_screen/care_team/ui/care_team.dart';
-import 'package:doctorapp/central_screen/home/ui/home.dart';
+import 'package:doctorapp/central_screen/home/ui/home_feature.dart';
 import 'package:doctorapp/central_screen/journal/ui/health.dart';
 import 'package:doctorapp/central_screen/records/ui/records.dart';
 import 'package:flutter/material.dart';

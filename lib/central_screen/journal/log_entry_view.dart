@@ -79,7 +79,7 @@ class _LogEntryViewState extends State<LogEntryView> {
                   onPressed: () {
                     buttonPress(context);
                   },
-                  child: Text('Edit'),
+                  child: Text('Add Notes'),
                 ),
               ),
             ],
