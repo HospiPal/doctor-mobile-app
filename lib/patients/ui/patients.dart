@@ -20,7 +20,7 @@ class _PatientsState extends State<Patients> {
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(10),
               child: MaterialButton(
                 padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
                 shape: CircleBorder(),

@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class UpcomingAppointmentsCard extends StatefulWidget {
+class RecentLabsTile extends StatefulWidget {
   @override
-  _UpcomingAppointmentsCardState createState() =>
-      _UpcomingAppointmentsCardState();
+  _RecentLabsTileState createState() => _RecentLabsTileState();
 
-  final String appointmentType;
+  final String labType;
   final String date;
 
-  UpcomingAppointmentsCard(this.appointmentType, this.date);
+  RecentLabsTile(this.labType, this.date);
 }
 
-class _UpcomingAppointmentsCardState extends State<UpcomingAppointmentsCard> {
+class _RecentLabsTileState extends State<RecentLabsTile> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -22,15 +21,15 @@ class _UpcomingAppointmentsCardState extends State<UpcomingAppointmentsCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Icon(
-                Icons.schedule,
+                Icons.graphic_eq,
                 color: Theme.of(context).accentColor,
               ),
-              Text(widget.appointmentType),
+              Text(widget.labType),
               Text(widget.date),
             ],
           ),
           margin: new EdgeInsets.symmetric(vertical: 10.0),
-          width: 350,
+          width: 500,
         ),
         onTap: () {
           //_showModalBottomSheet(context);

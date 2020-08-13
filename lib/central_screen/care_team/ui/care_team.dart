@@ -48,7 +48,8 @@ class _CareTeamState extends State<CareTeam> {
                             icon: Icon(Icons.message),
                             color: Theme.of(context).accentColor,
                             onPressed: () {
-                              Navigator.pushNamed(context, Routes.message);
+                              Navigator.pushNamed(
+                                  context, Routes.messageWithDoctors);
                             }),
                         IconButton(
                           icon: Icon(Icons.phone),

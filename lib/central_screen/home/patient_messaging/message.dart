@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'message_bubble.dart';
 import 'message_text.dart';
 
-class MessageWithDoctors extends StatefulWidget {
+class MessageWithPatient extends StatefulWidget {
   @override
-  _MessageWithDoctorsState createState() => _MessageWithDoctorsState();
+  _MessageWithPatientState createState() => _MessageWithPatientState();
 }
 
 // TODO: watch this video - https://www.youtube.com/watch?v=X00Xv7blBo0
@@ -17,11 +17,12 @@ enum MessageType {
   Receiver,
 }
 
-class _MessageWithDoctorsState extends State<MessageWithDoctors> {
+class _MessageWithPatientState extends State<MessageWithPatient> {
   List<MessageText> messages = [
-    MessageText(message: 'Hey Justin', messageType: MessageType.Sender),
+    MessageText(message: 'Hey [Patient]', messageType: MessageType.Sender),
     MessageText(
-        message: 'Hi Ethan! How ya doing?', messageType: MessageType.Receiver),
+        message: 'Hi Dr. Mulligan! How ya doing?',
+        messageType: MessageType.Receiver),
     MessageText(
         message: 'Im great. Hows it going with you',
         messageType: MessageType.Sender)

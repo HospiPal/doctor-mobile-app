@@ -1,4 +1,4 @@
-import 'package:doctorapp/central_screen/home/upcoming_appointments/upcoming_appointments_card.dart';
+import 'package:doctorapp/central_screen/home/upcoming_appointments/upcoming_appointments_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,24 +8,29 @@ class UpcomingAppointments extends StatefulWidget {
 }
 
 class _UpcomingAppointmentsState extends State<UpcomingAppointments> {
-  final List<UpcomingAppointmentsCard> appointments =
-      <UpcomingAppointmentsCard>[
-    UpcomingAppointmentsCard("Consultation", "8/11/20"),
-    UpcomingAppointmentsCard("Procedure", "8/22/20"),
+  final List<UpcomingAppointmentsTile> appointments =
+      <UpcomingAppointmentsTile>[
+    UpcomingAppointmentsTile("Consultation", "8/11/20"),
+    UpcomingAppointmentsTile("Procedure", "8/22/20"),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      //child: entries[index]
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 3.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("Upcoming Appointments:"),
-          getAppointmentCards()
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Upcoming Appointments",
+              style:
+                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.4),
+            ),
+          ),
+          getAppointmentCards(),
         ],
       ),
-      //color: Colors.amberAccent
     );
   }
 
