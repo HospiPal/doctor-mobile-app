@@ -19,12 +19,11 @@ enum MessageType {
 
 class _MessageWithPatientState extends State<MessageWithPatient> {
   List<MessageText> messages = [
-    MessageText(message: 'Hey [Patient]', messageType: MessageType.Sender),
+    MessageText(message: 'Hey Dr. Mulligan', messageType: MessageType.Receiver),
     MessageText(
-        message: 'Hi Dr. Mulligan! How ya doing?',
-        messageType: MessageType.Receiver),
+        message: 'Hi Justin! How ya doing?', messageType: MessageType.Sender),
     MessageText(
-        message: 'Im great. Hows it going with you',
+        message: 'I\'m not feeling too great today',
         messageType: MessageType.Sender)
   ];
 

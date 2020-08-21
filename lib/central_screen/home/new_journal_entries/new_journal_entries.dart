@@ -24,11 +24,10 @@ class _NewJournalEntriesState extends State<NewJournalEntries> {
         children: <Widget>[
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              "New Journal Entries",
-              style:
-                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.4),
-            ),
+            child: Text("New Journal Entries",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)
+                //DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.4),
+                ),
           ),
           getNewJournalEntryTiles(),
         ],

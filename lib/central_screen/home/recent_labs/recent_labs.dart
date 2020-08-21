@@ -21,11 +21,10 @@ class _RecentLabsState extends State<RecentLabs> {
         children: <Widget>[
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              "Recent Lab Results",
-              style:
-                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.4),
-            ),
+            child: Text("Recent Lab Results",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)
+                //DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.4),
+                ),
           ),
           getRecentLabResultCards(),
         ],

@@ -57,7 +57,14 @@ class _CareTeamState extends State<CareTeam> {
                           onPressed: () {
                             //Navigator.pushNamed(context, Routes.logEntryAdd);
                           },
-                        )
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.videocam),
+                          color: Theme.of(context).accentColor,
+                          onPressed: () {
+                            //Navigator.pushNamed(context, Routes.logEntryAdd);
+                          },
+                        ),
                       ],
                     )
                   ],

@@ -1,4 +1,5 @@
 import 'package:doctorapp/central_screen/home/new_journal_entries/new_journal_entries.dart';
+import 'package:doctorapp/central_screen/home/patient_profile/patient_profile.dart';
 import 'package:doctorapp/central_screen/home/recent_labs/recent_labs.dart';
 import 'package:doctorapp/central_screen/home/upcoming_appointments/upcoming_appointments.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,10 @@ class _HomeState extends State<Home> {
                     alignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.account_box),
+                        icon: Icon(Icons.assignment_ind),
+                        onPressed: () {
+                          patientProfileSheet();
+                        },
                       ),
                       IconButton(
                         icon: Icon(Icons.message),
@@ -80,11 +84,42 @@ class _HomeState extends State<Home> {
                       IconButton(
                         icon: Icon(Icons.phone),
                       ),
+                      IconButton(
+                        icon: Icon(Icons.videocam),
+                      ),
                     ],
                   ),
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void patientProfileSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: new BoxDecoration(
+          color: Colors.white,
+          borderRadius: new BorderRadius.only(
+            topLeft: const Radius.circular(25.0),
+            topRight: const Radius.circular(25.0),
+          ),
+        ),
+        child: Center(
+          child: DraggableScrollableSheet(
+            initialChildSize: .95,
+            maxChildSize: .95,
+            minChildSize: .9,
+            builder: (BuildContext context, ScrollController scrollController) {
+              return PatientProfile();
+            },
           ),
         ),
       ),

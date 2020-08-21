@@ -13,6 +13,8 @@ class MessageBubble extends StatefulWidget {
 }
 
 class _MessageBubbleState extends State<MessageBubble> {
+  Color textColor;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,16 +27,29 @@ class _MessageBubbleState extends State<MessageBubble> {
             ? Alignment.topLeft
             : Alignment.topRight),
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: (widget.messageText.messageType == MessageType.Receiver
-                ? Theme.of(context).accentColor
-                : Theme.of(context).primaryColor),
-          ),
-          padding: EdgeInsets.all(16),
-          child: Text(widget.messageText.message),
-        ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: (widget.messageText.messageType == MessageType.Receiver
+                  ? Theme.of(context).accentColor
+                  : Theme.of(context).primaryColor),
+            ),
+            padding: EdgeInsets.all(16),
+            child: getText(widget.messageText.messageType)),
       ),
     );
+  }
+
+  Widget getText(MessageType type) {
+    if (type == MessageType.Receiver) {
+      return Text(
+        widget.messageText.message,
+        style: TextStyle(color: Colors.white),
+      );
+    } else {
+      return Text(
+        widget.messageText.message,
+        style: TextStyle(color: Colors.black),
+      );
+    }
   }
 }

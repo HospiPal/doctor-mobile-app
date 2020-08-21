@@ -22,11 +22,10 @@ class _UpcomingAppointmentsState extends State<UpcomingAppointments> {
         children: <Widget>[
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              "Upcoming Appointments",
-              style:
-                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.4),
-            ),
+            child: Text("Upcoming Appointments",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)
+                //DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.4),
+                ),
           ),
           getAppointmentCards(),
         ],
